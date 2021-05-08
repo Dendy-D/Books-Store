@@ -1,0 +1,23 @@
+nav {
+  position: sticky;
+  top: 0;
+  height: 70px;
+}
+
+nav > .nav-wrapper {
+  padding: 0 20px;
+  background-color: #666666;
+}
+
+nav > .nav-wrapper ul a {
+  font-size: 18px;
+}
+
+.nav-wrapper .dropdown-trigger {
+  width: 110px;
+}
+
+.nav-wrapper .collection {
+  margin-top: -4px;
+  position: absolute;
+}
