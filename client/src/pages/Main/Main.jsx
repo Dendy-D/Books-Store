@@ -1,11 +1,16 @@
 import React from 'react'
-import DemoCarousel from '../../components/Carousel/Carousel'
+import Slider from '../../components/Slider/Slider'
+import { SliderData } from '../../components/Slider/SliderData'
+
+import './Main.css'
 
 const Main = () => {
   return (
-    <div>
-      <h1>Main page</h1>
-      <DemoCarousel />
+    <div className='main'>
+      <div className='sliderMain'>
+        <Slider slides={SliderData} />
+        {console.log(SliderData)}
+      </div>
     </div>
   )
 }

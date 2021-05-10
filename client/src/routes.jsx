@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import AboutUs from './pages/AboutUs/AboutUs'
 import Contacts from './pages/Contacts/Contacts'
@@ -12,13 +12,13 @@ export const UseRoutes = () => {
     <Switch>
       <Route path='/aboutUs'>
         <AboutUs />
-        <div className='gg'>
+        <div className='caseForRedirect'>
           <RedirectToMain />
         </div>
       </Route>
       <Route path='/contacts'>
         <Contacts />
-        <div className='gg'>
+        <div className='caseForRedirect'>
           <RedirectToMain />
         </div>
       </Route>

@@ -18,7 +18,10 @@ body {
   min-height: 100vh;
 }
 
-.gg {
+.caseForRedirect {
   margin-left: -280px;
 }
 
+.Case {
+  z-index: 100;
+}
