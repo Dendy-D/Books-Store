@@ -1,6 +1,7 @@
 import React from 'react'
 import ProSlider from '../../components/ProSlider/ProSlider'
 import BooksSlider from '../../components/BooksSlider/BooksSlider'
+import Articte from '../../components/Article/Articte'
 
 import './Main.css'
 
@@ -16,12 +17,13 @@ const Main = () => {
         <ProSlider />
       </section>
       <section className='main__aboutUs'>
-        <article>
-          
-        </article>
-        <h3>Книжный интернет магазин <span>booksStore</span></h3>
+        <h3>
+          Книжный интернет магазин <span>booksStore</span>
+        </h3>
+        <Articte />
       </section>
-      <section>
+      <section className='main__popular'>
+        <h3>Скоро в продаже</h3>
         <BooksSlider />
       </section>
     </main>

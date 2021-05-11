@@ -1,6 +1,12 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 import './Footer.css'
+
+import card1 from '../../images/visa.png'
+import card2 from '../../images/master_card.png'
+import card3 from '../../images/maestro.png'
+import card4 from '../../images/mir.jpg'
 
 const Footer = () => {
   return (
@@ -14,33 +20,46 @@ const Footer = () => {
       <div className='container'>
         <div className='row'>
           <div className='col l6 s12'>
-            <h5 className='white-text'>Footer Content</h5>
+            <h5 className='white-text'>booksStore</h5>
             <p className='grey-text text-lighten-4'>
-              You can use rows and columns here to organize your footer content.
+              This site was designed and <span>created by Dendy-D</span> When
+              creating this site I applied: node.js, React, reack-hooks,
+              express, mongodb, Routing, materialize.css. As well as such npm
+              packages: swiper, react-sticky-el, react-toastify. I only
+              mentioned the main technologys. I also made the site responsive
+              using relative values ​​and media queries. While developing this
+              site, I got a better understanding of how the backend works,
+              understood better how the useEffect () hook works, and learned
+              some interesting libraries and how to use them with React. And in
+              the end I figured out how a basic online store works.
             </p>
           </div>
           <div className='col l4 offset-l2 s12'>
-            <h5 className='white-text'>Links</h5>
+            <h5 className='white-text'>Information</h5>
             <ul>
               <li>
-                <a className='grey-text text-lighten-3' href='#!'>
-                  Link 1
-                </a>
+                <NavLink className='text-lighten-3' to='/aboutUs'>
+                  about us
+                </NavLink>
               </li>
               <li>
-                <a className='grey-text text-lighten-3' href='#!'>
-                  Link 2
-                </a>
+                <NavLink className='text-lighten-3' to='/contacts'>
+                  contacts
+                </NavLink>
               </li>
               <li>
-                <a className='grey-text text-lighten-3' href='#!'>
-                  Link 3
-                </a>
+                <NavLink className='text-lighten-3' to='/'>
+                  shopping bag
+                </NavLink>
               </li>
-              <li>
-                <a className='grey-text text-lighten-3' href='#!'>
-                  Link 4
-                </a>
+              <li className='pay'>
+                <p className='p__cards'>Способы оплаты:</p>
+                <div className='cards'>
+                  <img src={card1} alt='' />
+                  <img src={card2} alt='' />
+                  <img src={card3} alt='' />
+                  <img src={card4} alt='' />
+                </div>
               </li>
             </ul>
           </div>
@@ -48,10 +67,10 @@ const Footer = () => {
       </div>
       <div className='footer-copyright'>
         <div className='container'>
-          © 2014 Copyright Text
-          <a className='grey-text text-lighten-4 right' href='#!'>
-            More Links
-          </a>
+          © 2010–2021 "booksStore Moscow"
+          <NavLink className='grey-text text-lighten-4 right' to='/'>
+            Created by <span>Dendy-D</span>
+          </NavLink>
         </div>
       </div>
     </footer>

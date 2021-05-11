@@ -72,11 +72,12 @@
 
 .sliderPro .swiper-slide .title span {
   font-size: 46px;
-  color: #26a6a7;
+  /* color: #26a6a7; */
+  color: #2ccfbf;
 }
 
 .sliderPro .swiper-slide .text p span {
   font-weight: bold;
   font-size: 24px;
-  color: #26a6a7;
+  color: #2ccfbf;
 }

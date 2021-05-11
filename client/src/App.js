@@ -7,21 +7,23 @@ import Footer from './components/Footer/Footer.jsx'
 
 import 'materialize-css'
 import './index.css'
+import ScrollToTop from './components/ScrollToTop/ScrollToTop.jsx'
 
 const App = () => {
   return (
     <Router>
-      <div className='wrapper'>
-        <div className='Case'>
-          <Sticky>
-            <NavBar />
-          </Sticky>
+      <ScrollToTop/>
+        <div className='wrapper'>
+          <div className='Case'>
+            <Sticky>
+              <NavBar />
+            </Sticky>
+          </div>
+          <div className='container'>
+            <UseRoutes />
+          </div>
+          <Footer />
         </div>
-        <div className='container'>
-          <UseRoutes />
-        </div>
-        <Footer />
-      </div>
     </Router>
   )
 }

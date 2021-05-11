@@ -15,3 +15,27 @@
   display: block;
   width: 100%;
 }
+
+.booksSlider .swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transition: transform 0.2s ease;
+}
+
+.booksSlider .swiper-button-prev:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+}
+
+.booksSlider .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transition: transform 0.2s ease;
+}
+
+.booksSlider .swiper-button-next:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+}

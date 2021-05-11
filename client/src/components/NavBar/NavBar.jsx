@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import Search from '../Search/Search'
 
 import './NavBar.css'
 

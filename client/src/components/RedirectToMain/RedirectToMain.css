@@ -1,5 +1,6 @@
 .redirectToMain {
   display: block;
+  background-color: #2ccfbf;
 }
 
 .redirectToMain > .navLink {

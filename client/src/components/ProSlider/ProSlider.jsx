@@ -21,7 +21,7 @@ export const ProSlider = () => {
     <>
       <Swiper
         style={{
-          '--swiper-navigation-color': '#26A6A7',
+          '--swiper-navigation-color': '#2CCFBF',
           '--swiper-pagination-color': '#fff',
         }}
         autoplay={{

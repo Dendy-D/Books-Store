@@ -6,7 +6,7 @@ nav {
 
 nav > .nav-wrapper {
   padding: 0 20px;
-  /* background-color: rgb(238, 246, 255); */
+  /* background-color: rgb(175, 175, 175); */
   background-color: #75593a;
 }
 
@@ -25,7 +25,7 @@ nav > .nav-wrapper ul a {
 }
 
 .nav-wrapper .collection a {
-  color: #111;
+  color: #32353e;
 }
 
 nav .brand-logo {
@@ -35,7 +35,7 @@ nav .brand-logo {
 
 nav .brand-logo span {
   display: block;
-  color: #26a6a7;
+  color: #2ccfbf;
   font-weight: bold;
   margin-right: 15px;
 }
