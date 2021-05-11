@@ -6,11 +6,13 @@ nav {
 
 nav > .nav-wrapper {
   padding: 0 20px;
-  background-color: #666666;
+  /* background-color: rgb(238, 246, 255); */
+  background-color: #75593a;
 }
 
 nav > .nav-wrapper ul a {
   font-size: 18px;
+  color: white;
 }
 
 .nav-wrapper .dropdown-trigger {
@@ -20,4 +22,27 @@ nav > .nav-wrapper ul a {
 .nav-wrapper .collection {
   margin-top: -4px;
   position: absolute;
+}
+
+.nav-wrapper .collection a {
+  color: #111;
+}
+
+nav .brand-logo {
+  display: flex;
+  justify-content: center;
+}
+
+nav .brand-logo span {
+  display: block;
+  color: #26a6a7;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+nav .brand-logo img {
+  display: block;
+  margin-top: 15px;
+  width: 40px;
+  height: 40px;
 }

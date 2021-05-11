@@ -19,11 +19,10 @@
     "config": "^3.3.6",
     "express": "^4.17.1",
     "express-validator": "^6.10.1",
-    "jquery": "^3.6.0",
     "mongoose": "^5.12.7",
-    "react-responsive-carousel": "^3.2.18",
     "react-router-dom": "^5.2.0",
-    "shortid": "^2.2.16"
+    "shortid": "^2.2.16",
+    "swiper": "^6.5.9"
   },
   "devDependencies": {
     "concurrently": "^6.0.2",

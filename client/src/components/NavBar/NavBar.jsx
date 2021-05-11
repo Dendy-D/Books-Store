@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Search from '../Search/Search'
 
 import './NavBar.css'
+
+import icon from '../../images/main-icon.png'
 
 const NavBar = () => {
   const [drop, setDrop] = useState(true)
@@ -12,11 +14,19 @@ const NavBar = () => {
     setDrop(!drop)
   }
 
+  useEffect(() => {
+    document.addEventListener('mousedown', function (event) {
+      if (event.target.id !== 'dropdown') {
+        setDrop(true)
+      }
+    })
+  })
+
   return (
     <nav>
       <div className='nav-wrapper'>
         <NavLink to='/main' className='brand-logo'>
-          booksStore
+          <span>booksStore</span> <img src={icon} alt='' />
         </NavLink>
         <ul className='right hide-on-med-and-down'>
           <li>
@@ -27,6 +37,7 @@ const NavBar = () => {
           </li>
           <li>
             <a
+              id='dropdown'
               className='dropdown-trigger'
               href='#!'
               data-target='dropdown1'

@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 const app = express()
 
-app.use('/', require('./routes/variables.routes'))
+// app.use('/', require('./routes/variables.routes'))
 
 const PORT = config.get('PORT') || 5000
 
