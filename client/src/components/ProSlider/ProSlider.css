@@ -10,6 +10,7 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 40px 60px;
+  padding-top: 0;
 }
 
 .sliderPro .parallax-bg {
@@ -28,8 +29,8 @@
 .sliderPro .swiper-slide .title {
   padding: 0;
   margin: 0;
-  margin-bottom: 20px;
-  font-size: 41px;
+  margin-bottom: 5%;
+  font-size: 35px;
   text-align: center;
   color: #fff;
   font-weight: 700;
@@ -60,9 +61,9 @@
 }
 
 .sliderPro .swiper-slide .text {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   margin-bottom: -50px;
-  margin-top: 30px;
+  margin-top: 4%;
   padding: 0;
   font-size: 20px;
   max-width: 600px;
@@ -71,7 +72,7 @@
 }
 
 .sliderPro .swiper-slide .title span {
-  font-size: 46px;
+  font-size: 35px;
   /* color: #26a6a7; */
   color: #2ccfbf;
 }

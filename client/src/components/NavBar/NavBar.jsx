@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
+import 'react-toastify/dist/ReactToastify.css'
+
 import './NavBar.css'
 
 import icon from '../../images/main-icon.png'
+import BurgerMenu from '../BurgerMenu/BurgerMenu'
+import BurgerMenuButton from '../BurgerMenu/BurgerMenuButton/BurgerMenuButton'
 
 const NavBar = () => {
   const [drop, setDrop] = useState(true)
@@ -20,6 +24,20 @@ const NavBar = () => {
       }
     })
   })
+
+  // useEffect(() => {
+  //   document.addEventListener('mousedown', function (event) {
+  //     if (event.target.id !== 'a') {
+  //       document.querySelector('#a').classList.add('none')
+  //     }
+  //   })
+  // })
+
+  const [bool, setBool] = useState(false)
+
+  const handleClick = () => {
+    setBool(!bool)
+  }
 
   return (
     <nav>
@@ -53,10 +71,28 @@ const NavBar = () => {
               </a>
             </div>
           </li>
+          <li>
+            <NavLink to='/authorization' className='nav__auth'>
+              <i className='medium material-icons'>account_circle</i>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/shopingBag' className='nav__shopingBag'>
+              <i className='medium material-icons'>local_grocery_store</i>
+            </NavLink>
+          </li>
         </ul>
+        <div id='a'>
+          <BurgerMenu handleClick={handleClick} bool={bool} />
+        </div>
       </div>
     </nav>
   )
 }
 
 export default NavBar
+
+// local_grocery_store - shopping bag
+// pool - уплыть отсюда к херам
+// shopping_cart
+// transfer_within_a_station - ээ пару раз туда сюда сделай

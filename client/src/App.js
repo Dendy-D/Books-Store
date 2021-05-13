@@ -5,9 +5,12 @@ import { UseRoutes } from './routes.jsx'
 import NavBar from './components/NavBar/NavBar.jsx'
 import Footer from './components/Footer/Footer.jsx'
 
+import ScrollToTop from './components/ScrollToTop/ScrollToTop.jsx'
+
 import 'materialize-css'
 import './index.css'
-import ScrollToTop from './components/ScrollToTop/ScrollToTop.jsx'
+import './mediaStyles.css'
+
 
 const App = () => {
   return (

@@ -23,7 +23,12 @@ const Articte = () => {
               </span>
             </div>
             <div className='icon-description'>
-              <span onClick={notify}>Круглосуточная поддержка</span>
+              <span className='icon-description__text' onClick={notify}>
+                <a href={'*'}>Круглосуточная</a>{' '}
+              </span>
+              <span className='icon-description__text' onClick={notify}>
+                <a href={'*'}>поддержка</a>{' '}
+              </span>
             </div>
           </li>
           <li>
@@ -33,7 +38,12 @@ const Articte = () => {
               </span>
             </div>
             <div className='icon-description'>
-              <span onClick={notify}>Доставка по всей стране</span>
+              <span className='icon-description__text1' onClick={notify}>
+                <a href={'*'}>Доставка</a>
+              </span>
+              <span className='icon-description__text2' onClick={notify}>
+                <a href={'*'}>по всей стране</a>
+              </span>
             </div>
           </li>
           <li>
@@ -43,7 +53,12 @@ const Articte = () => {
               </span>
             </div>
             <div className='icon-description'>
-              <span onClick={notify}>Подарочные купоны</span>
+              <span className='icon-description__text1' onClick={notify}>
+                <a href={'*'}>Подарочные</a>
+              </span>
+              <span className='icon-description__text2' onClick={notify}>
+                <a href={'*'}>купоны</a>
+              </span>
             </div>
           </li>
           <li>
@@ -53,7 +68,12 @@ const Articte = () => {
               </span>
             </div>
             <div className='icon-description'>
-              <span onClick={notify}>У нас тут не курят</span>
+              <span className='icon-description__text1' onClick={notify}>
+                <a href={'*'}>У нас тут</a>
+              </span>
+              <span className='icon-description__text2' onClick={notify}>
+                <a href={'*'}>не курят</a>
+              </span>
             </div>
           </li>
           <li>
@@ -63,7 +83,12 @@ const Articte = () => {
               </span>
             </div>
             <div className='icon-description'>
-              <span onClick={notify}>Найдете все что искали</span>
+              <span className='icon-description__text1' onClick={notify}>
+                <a href={'*'}>Найдете все</a>
+              </span>
+              <span className='icon-description__text2' onClick={notify}>
+                <a href={'*'}>что искали</a>
+              </span>
             </div>
           </li>
         </ul>

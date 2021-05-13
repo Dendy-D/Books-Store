@@ -22,7 +22,7 @@ const Footer = () => {
           <div className='col l6 s12'>
             <h5 className='white-text'>booksStore</h5>
             <p className='grey-text text-lighten-4'>
-              This site was designed and <span>created by Dendy-D</span> When
+              This site was designed and <span className='footer__span'>created by Dendy-D</span> When
               creating this site I applied: node.js, React, reack-hooks,
               express, mongodb, Routing, materialize.css. As well as such npm
               packages: swiper, react-sticky-el, react-toastify. I only
@@ -69,7 +69,7 @@ const Footer = () => {
         <div className='container'>
           © 2010–2021 "booksStore Moscow"
           <NavLink className='grey-text text-lighten-4 right' to='/'>
-            Created by <span>Dendy-D</span>
+            Created by <span className='footer__span'>Dendy-D</span>
           </NavLink>
         </div>
       </div>
