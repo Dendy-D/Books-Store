@@ -72,7 +72,7 @@ const NavBar = () => {
             </div>
           </li>
           <li>
-            <NavLink to='/authorization' className='nav__auth'>
+            <NavLink to='/auth' className='nav__auth'>
               <i className='medium material-icons'>account_circle</i>
             </NavLink>
           </li>

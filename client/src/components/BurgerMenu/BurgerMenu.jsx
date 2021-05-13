@@ -27,7 +27,7 @@ const BurgerMenu = () => {
         <BurgerMenuButton openerMenu={openerMenu} />
         <div id='menu' className='menu open'>
           <div className='menu__item'>
-            <NavLink to='/'>Авторизация</NavLink>
+            <NavLink to='/auth'>Авторизация</NavLink>
           </div>
           <div className='menu__item'>
             <NavLink to='/'>Корзина</NavLink>

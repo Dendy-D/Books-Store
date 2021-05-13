@@ -64,15 +64,15 @@ const Articte = () => {
           <li>
             <div className='icon'>
               <span onClick={notify}>
-                <i className='medium material-icons'>smoke_free</i>
+                <i className='medium material-icons'>transfer_within_a_station</i>
               </span>
             </div>
             <div className='icon-description'>
               <span className='icon-description__text1' onClick={notify}>
-                <a href={'*'}>У нас тут</a>
+                <a href={'*'}>Обратная</a>
               </span>
               <span className='icon-description__text2' onClick={notify}>
-                <a href={'*'}>не курят</a>
+                <a href={'*'}>связь</a>
               </span>
             </div>
           </li>
