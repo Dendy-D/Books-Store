@@ -34,10 +34,12 @@ nav .brand-logo {
 }
 
 nav .brand-logo span {
+  font-family: 'Balsamiq Sans', cursive;
   display: block;
   color: #2ccfbf;
   font-weight: bold;
   margin-right: 15px;
+  margin-top: 3px;
 }
 
 nav .brand-logo img {

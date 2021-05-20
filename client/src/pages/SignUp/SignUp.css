@@ -18,7 +18,7 @@
 }
 
 .card-content > .input-field > label {
-  color: white;
+  color: #32353e;
 }
 
 .auth > h3 {
@@ -39,27 +39,33 @@
   color: #32353e;
 }
 
-.auth .card-action .btn.sign-in {
-  background-color: #2ccfbf;
-  display: block;
-}
-
 .auth .card .card-action {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.auth .card .card-action > .navLink {
+.auth .card-action .btn.sign-up {
+  background-color: #2ccfbf;
+  color: white;
   display: block;
+}
+
+.auth .card-action p > .signIn {
   color: #d1d1d1 !important;
-  font-weight: bold;
   text-transform: none !important;
+  display: block;
   transition: 0.5s ease !important;
 }
 
-.auth .card .card-action > .navLink:hover {
-  color: #2ccfbf !important;
+.auth .card-action p > .signIn:hover {
   transform: scale(1.1);
+  color: #2ccfbf !important;
   transition: 0.5s ease !important;
 }
+
+.auth .card .input-field .errorValidation {
+  color: red;
+  font-weight: bold;
+}
+

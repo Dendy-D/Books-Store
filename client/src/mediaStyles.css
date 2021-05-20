@@ -89,7 +89,7 @@
     padding: 0 3%;
   }
 
-  li .icon-description > span {
+  li .icon-description > span > a {
     display: none;
   }
 }
@@ -183,7 +183,10 @@
 @media (min-width: 768px) and (max-width: 991px) {
 }
 
-@media (max-width: 767px) {
+@media (max-width: 605px) {
+  nav .brand-logo span {
+    margin-top: 6px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -193,6 +196,30 @@
 }
 
 /* --------------------------------------------------------- */
+
+/* media Styles for SignUp */
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+@media (max-width: 767px) {
+}
+
+@media (max-width: 480px) {
+  .auth .card-action p > .signIn {
+    font-size: 12px;
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 320px) {
+}
 
 /* 
 

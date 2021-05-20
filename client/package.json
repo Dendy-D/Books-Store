@@ -6,6 +6,8 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+    "formik": "^2.2.6",
+    "history": "^5.0.0",
     "materialize-css": "^1.0.0-rc.2",
     "pure-react-carousel": "^1.27.6",
     "react": "^17.0.2",
@@ -15,7 +17,8 @@
     "react-sticky-el": "^2.0.7",
     "react-toastify": "^7.0.4",
     "swiper": "^6.5.9",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",

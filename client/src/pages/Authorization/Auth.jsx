@@ -1,84 +1,121 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { useHttp } from '../../hooks/http.hook'
+import { NavLink } from 'react-router-dom'
+import { Formik } from 'formik'
+import * as yup from 'yup'
+import { toast, ToastContainer } from 'react-toastify'
+import { AuthContext } from '../../context/AuthContext'
 
 import './Auth.css'
 
-const Auth = () => {
-  const { loading, request, error } = useHttp()
+toast.configure()
 
-  const [form, setForm] = useState({
-    email: '',
-    password: '',
+const Auth = () => {
+  const auth = useContext(AuthContext)
+  const { loading, request, error, clearError } = useHttp()
+
+  const validationsSchema = yup.object().shape({
+    email: yup
+      .string()
+      .email('Введите верный email')
+      .required('Обязательно для заполнения'),
   })
 
-  const changeHandler = (event) => {
-    setForm({ ...form, [event.target.name]: event.target.value })
+  const notify = (mes) => {
+    toast.success(mes)
   }
 
-  const registerHandler = async () => {
-    try {
-      const data = await request('/api/auth/register', 'POST', { ...form })
-      console.log('Data: ', data)
-    } catch (e) {}
-  }
-
-  const loginHandler = async () => {
-    try {
-      const data = await request('/api/auth/login', 'POST', { ...form })
-      console.log('Data: ', data)
-    } catch (e) {}
-  }
+  useEffect(() => {
+    const notify = (error) => {
+      toast.error(error)
+    }
+    notify(error)
+    clearError()
+  }, [error, clearError])
 
   return (
-    <div className='row auth'>
-      {/*Если всего 12 столбцов, а содержимое 6 столбцов, то если мы сместим все на 3 столбца это приведет к центрированию содержимого*/}
-      <h3 className='auth__header'>Авторизация</h3>
-      <div className='card'>
-        <div className='card-content white-text'>
-          <span className='card-title head'>Authorization</span>
+    <Formik
+      initialValues={{
+        password: '',
+        email: '',
+      }}
+      validateOnBlur
+      onSubmit={async (obj) => {
+        try {
+          const data = await request('/api/auth/login', 'POST', { ...obj })
+          notify(data.message)
+          auth.login(data.token, data.userId)
+        } catch (e) {}
+      }}
+      validationSchema={validationsSchema}
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        isValid,
+        handleSubmit,
+        dirty,
+      }) => (
+        <div className='row auth'>
+          <h3 className='auth__header'>Авторизация</h3>
+          <div className='card'>
+            <div className='card-content white-text'>
+              <span className='card-title head'>Authorization</span>
 
-          <div className='input-field'>
-            <input
-              placeholder='Введите email'
-              id='email'
-              type='email'
-              className='validate'
-              name='email'
-              onChange={changeHandler}
-            />
-            <label htmlFor='email'>Email</label>
-          </div>
+              <div className='input-field'>
+                <input
+                  placeholder='Введите email'
+                  id='email'
+                  type='email'
+                  className='validate'
+                  name='email'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
+                />
+                <label htmlFor='email'>Email</label>
+                {touched.email && errors.email && (
+                  <p className='errorValidation'>{errors.email}</p>
+                )}
+              </div>
 
-          <div className='input-field'>
-            <input
-              placeholder='Введите пароль'
-              id='password'
-              type='password'
-              className='validate'
-              name='password'
-              onChange={changeHandler}
-            />
-            <label htmlFor='email'>Password</label>
+              <div className='input-field'>
+                <input
+                  placeholder='Введите пароль'
+                  id='password'
+                  type='password'
+                  className='validate'
+                  name='password'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.password}
+                />
+                <label htmlFor='email'>Password</label>
+              </div>
+            </div>
+            <div className='card-action'>
+              <button
+                className='btn sign-in'
+                onClick={() => {
+                  handleSubmit()
+                }}
+                type={'submit'}
+                disabled={loading && !isValid && !dirty}
+              >
+                Войти
+              </button>
+
+              <NavLink className='navLink' to='/signUp'>
+                Регистрация
+              </NavLink>
+            </div>
           </div>
         </div>
-        <div className='card-action'>
-          <button
-            className='btn sign-in'
-            onClick={loginHandler}
-            disabled={loading}
-          >
-            Войти
-          </button>
-          <button
-            className='btn sign-up'
-            onClick={registerHandler}
-            disabled={loading}
-          >
-            Регистрация
-          </button>
-        </div>
-      </div>
-    </div>
+      )}
+    </Formik>
   )
 }
 

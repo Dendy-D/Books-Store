@@ -77,7 +77,7 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to='/shopingBag' className='nav__shopingBag'>
+            <NavLink to='/shoppingBag' className='nav__shopingBag'>
               <i className='medium material-icons'>local_grocery_store</i>
             </NavLink>
           </li>

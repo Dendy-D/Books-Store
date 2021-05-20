@@ -14,6 +14,7 @@ router.post(
     check('password', 'Minimum length of password is 6 symbols').isLength({
       min: 6,
     }),
+    check('login', 'Such user already exists'),
   ],
   async (req, res) => {
     try {
@@ -28,21 +29,29 @@ router.post(
         })
       }
 
-      const { email, password } = req.body
+      const { email, password, login } = req.body
 
-      const candidate = await User.findOne({ email })
+      const candidateEmail = await User.findOne({ email })
+      const candidateLogin = await User.findOne({ login })
 
-      if (candidate) {
-        return res.status(400).json({ message: 'This user already created' })
+      if (candidateEmail) {
+        return res
+          .status(400)
+          .json({ message: 'Пользователь с таким email уже ' })
+      }
+      if (candidateLogin) {
+        return res
+          .status(400)
+          .json({ message: 'Пользователь с таким логином уже существует' })
       }
 
       const hashePassword = await bcrypt.hash(password, 12)
 
-      const user = new User({ email, password: hashePassword })
+      const user = new User({ email, password: hashePassword, login })
 
       await user.save()
 
-      res.status(201).json({ message: 'User is created' })
+      res.status(201).json({ message: 'Пользователь создан' })
     } catch (e) {
       res.status(500).json({ message: 'Somethink wrong, try again' })
     }
@@ -72,20 +81,24 @@ router.post(
       const user = await User.findOne({ email })
 
       if (!user) {
-        return res.status(400).json({ message: 'User is not found' })
+        return res.status(400).json({ message: 'Пользователь не найден' })
       }
 
       const isMatch = await bcrypt.compare(password, user.password)
 
       if (!isMatch) {
-        return res.status(400).json({ message: 'Wrong password, try again' })
+        return res
+          .status(400)
+          .json({ message: 'Неверный пароль, попробуйте снова' })
       }
 
       const token = jwt.sign({ userId: user.id }, config.get('jwtSecret'), {
         expiresIn: '1h',
       })
 
-      res.json({ token, userId: user.id })
+      res.json({ token, userId: user.id, message: 'Вход в систему выполнен успешно' })
+
+      // res.status(201).json({ message: 'Пользователь создан' })
     } catch (e) {
       res.status(500).json({ message: 'Something wrong' })
     }
