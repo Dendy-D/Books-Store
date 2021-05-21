@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "formik": "^2.2.6",
+    "glamor": "^2.20.40",
     "history": "^5.0.0",
     "materialize-css": "^1.0.0-rc.2",
     "pure-react-carousel": "^1.27.6",

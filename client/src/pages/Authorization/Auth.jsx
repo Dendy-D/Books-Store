@@ -6,11 +6,13 @@ import * as yup from 'yup'
 import { toast, ToastContainer } from 'react-toastify'
 import { AuthContext } from '../../context/AuthContext'
 
+// import CloseButton from '../../components/Notify/CloseButton'
+
 import './Auth.css'
 
 toast.configure()
 
-const Auth = () => {
+const Auth = ({ body }) => {
   const auth = useContext(AuthContext)
   const { loading, request, error, clearError } = useHttp()
 
@@ -31,7 +33,7 @@ const Auth = () => {
     }
     notify(error)
     clearError()
-  }, [error, clearError])
+  }, [error]) // BE CAREFULLY I am removed dependency - clearError, it can be bad move, I don't know it yet
 
   return (
     <Formik
@@ -43,7 +45,7 @@ const Auth = () => {
       onSubmit={async (obj) => {
         try {
           const data = await request('/api/auth/login', 'POST', { ...obj })
-          notify(data.message)
+          notify(`Вход в систему выполнен успешно. Здравствуйте ${body.login}`)
           auth.login(data.token, data.userId)
         } catch (e) {}
       }}
@@ -113,6 +115,7 @@ const Auth = () => {
               </NavLink>
             </div>
           </div>
+          {/* <ToastContainer closeButton={<CloseButton />} /> */}
         </div>
       )}
     </Formik>

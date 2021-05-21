@@ -14,7 +14,9 @@ router.post(
     check('password', 'Minimum length of password is 6 symbols').isLength({
       min: 6,
     }),
-    check('login', 'Such user already exists'),
+    check('login', 'Maximum length of login is 11 symbols').isLength({
+      max: 11,
+    }),
   ],
   async (req, res) => {
     try {
@@ -37,7 +39,7 @@ router.post(
       if (candidateEmail) {
         return res
           .status(400)
-          .json({ message: 'Пользователь с таким email уже ' })
+          .json({ message: 'Пользователь с таким email уже существует' })
       }
       if (candidateLogin) {
         return res
@@ -72,11 +74,13 @@ router.post(
       if (!errors.isEmpty()) {
         return res.status(400).json({
           errors: errors.array(),
-          message: 'Uncorretly login details',
+          message: 'Проверьте правильность ввода данных',
         })
       }
 
       const { email, password } = req.body
+
+      // const userLogin =  User
 
       const user = await User.findOne({ email })
 
@@ -96,7 +100,11 @@ router.post(
         expiresIn: '1h',
       })
 
-      res.json({ token, userId: user.id, message: 'Вход в систему выполнен успешно' })
+      res.json({
+        token,
+        userId: user.id,
+        message: 'Вход в систему выполнен успешно',
+      })
 
       // res.status(201).json({ message: 'Пользователь создан' })
     } catch (e) {

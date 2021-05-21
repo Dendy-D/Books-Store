@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { NavLink, Redirect } from 'react-router-dom'
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 import BurgerMenuButton from './BurgerMenuButton/BurgerMenuButton'
 
@@ -11,15 +11,6 @@ const BurgerMenu = () => {
   const openerMenu = () => {
     setOpen(!open)
   }
-
-  // useEffect(() => {
-  //   document.addEventListener('mousedown', function (event) {
-  //     if (event.target.id !== 'menu') {
-  //       setOpen(false)
-  //     }
-  //     // console.log(event.target.ariaCurrent)
-  //   })
-  // })
 
   if (open === true)
     return (
@@ -55,9 +46,6 @@ const BurgerMenu = () => {
       <div className='menu e'></div>
       <div className='blur none'></div>
     </div>
-    // <div className='menu'>
-    //   <BurgerMenuButton openerMenu={openerMenu} />
-    // </div>
   )
 }
 

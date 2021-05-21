@@ -73,7 +73,7 @@ export const UseRoutes = (isAuthenticated) => {
       <Route path='/signUp'>
         <SignUp />
       </Route>
-      {/* <Redirect to='/auth' /> */}
+      <Redirect to='/auth' />
     </Switch>
   )
 }

@@ -28,7 +28,7 @@ SwiperCore.use([Navigation, EffectCoverflow, Pagination, Autoplay])
 
 const BooksSlider = () => {
   return (
-    <>
+    <div>
       <Swiper
         style={{
           '--swiper-navigation-color': '#2CCFBF',
@@ -84,7 +84,7 @@ const BooksSlider = () => {
           <img src={book9} alt='' />
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   )
 }
 

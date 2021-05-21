@@ -18,7 +18,7 @@ SwiperCore.use([Autoplay, Parallax, Pagination, Navigation])
 
 export const ProSlider = () => {
   return (
-    <>
+    <div>
       <Swiper
         style={{
           '--swiper-navigation-color': '#2CCFBF',
@@ -89,7 +89,7 @@ export const ProSlider = () => {
           </div>
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   )
 }
 

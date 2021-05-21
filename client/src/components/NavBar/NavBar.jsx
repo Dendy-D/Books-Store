@@ -7,7 +7,6 @@ import './NavBar.css'
 
 import icon from '../../images/main-icon.png'
 import BurgerMenu from '../BurgerMenu/BurgerMenu'
-import BurgerMenuButton from '../BurgerMenu/BurgerMenuButton/BurgerMenuButton'
 
 const NavBar = () => {
   const [drop, setDrop] = useState(true)
@@ -24,14 +23,6 @@ const NavBar = () => {
       }
     })
   })
-
-  // useEffect(() => {
-  //   document.addEventListener('mousedown', function (event) {
-  //     if (event.target.id !== 'a') {
-  //       document.querySelector('#a').classList.add('none')
-  //     }
-  //   })
-  // })
 
   const [bool, setBool] = useState(false)
 
