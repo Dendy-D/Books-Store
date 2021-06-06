@@ -3,10 +3,8 @@ import { useHttp } from '../../hooks/http.hook'
 import { NavLink } from 'react-router-dom'
 import { Formik } from 'formik'
 import * as yup from 'yup'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import { AuthContext } from '../../context/AuthContext'
-
-// import CloseButton from '../../components/Notify/CloseButton'
 
 import './Auth.css'
 
@@ -34,6 +32,10 @@ const Auth = ({ body }) => {
     notify(error)
     clearError()
   }, [error]) // BE CAREFULLY I am removed dependency - clearError, it can be bad move, I don't know it yet
+
+  useEffect(() => {
+    window.M.updateTextFields()
+  }, [])
 
   return (
     <Formik
@@ -64,58 +66,57 @@ const Auth = ({ body }) => {
         <div className='row auth'>
           <h3 className='auth__header'>Авторизация</h3>
           <div className='card'>
-            <div className='card-content white-text'>
-              <span className='card-title head'>Authorization</span>
+            <form onSubmit={handleSubmit}>
+              <div className='card-content white-text'>
+                <span className='card-title head'>Sign in</span>
 
-              <div className='input-field'>
-                <input
-                  placeholder='Введите email'
-                  id='email'
-                  type='email'
-                  className='validate'
-                  name='email'
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                />
-                <label htmlFor='email'>Email</label>
-                {touched.email && errors.email && (
-                  <p className='errorValidation'>{errors.email}</p>
-                )}
+                <div className='input-field'>
+                  <input
+                    placeholder='Введите email'
+                    id='email'
+                    type='email'
+                    className='validate'
+                    name='email'
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.email}
+                  />
+                  <label htmlFor='email'>Email</label>
+                  {touched.email && errors.email && (
+                    <p className='errorValidation'>{errors.email}</p>
+                  )}
+                </div>
+
+                <div className='input-field'>
+                  <input
+                    placeholder='Введите пароль'
+                    id='password'
+                    type='password'
+                    className='validate'
+                    name='password'
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.password}
+                  />
+                  <label htmlFor='email'>Password</label>
+                </div>
               </div>
+              <div className='card-action'>
+                <button
+                  className='btn sign-in'
+                  onClick={handleSubmit}
+                  type={'submit'}
+                  disabled={loading && !isValid && !dirty}
+                >
+                  Войти
+                </button>
 
-              <div className='input-field'>
-                <input
-                  placeholder='Введите пароль'
-                  id='password'
-                  type='password'
-                  className='validate'
-                  name='password'
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.password}
-                />
-                <label htmlFor='email'>Password</label>
+                <NavLink className='navLink' to='/signUp'>
+                  Регистрация
+                </NavLink>
               </div>
-            </div>
-            <div className='card-action'>
-              <button
-                className='btn sign-in'
-                onClick={() => {
-                  handleSubmit()
-                }}
-                type={'submit'}
-                disabled={loading && !isValid && !dirty}
-              >
-                Войти
-              </button>
-
-              <NavLink className='navLink' to='/signUp'>
-                Регистрация
-              </NavLink>
-            </div>
+            </form>
           </div>
-          {/* <ToastContainer closeButton={<CloseButton />} /> */}
         </div>
       )}
     </Formik>

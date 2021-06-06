@@ -32,6 +32,10 @@ const SignUp = () => {
     clearError()
   }, [error]) // BE CAREFULLY I am removed dependency - clearError, it can be bad move, I don't know it yet
 
+  useEffect(() => {
+    window.M.updateTextFields()
+  }, [])
+
   const validationsSchema = yup.object().shape({
     login: yup
       .string()
@@ -87,104 +91,109 @@ const SignUp = () => {
           dirty,
         }) => (
           <div className='row auth'>
-            <h3 className='auth__header'>Авторизация</h3>
+            <h3 className='auth__header'>Регистрация</h3>
             <div className='card'>
-              <div className='card-content white-text'>
-                <span className='card-title head'>Authorization</span>
-                <div className='input-field'>
-                  <input
-                    placeholder='Введите логин'
-                    id='login'
-                    type='text'
-                    className='validate'
-                    name={'login'}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.login}
-                  />
-                  <label htmlFor='login'>Login</label>
-                  {touched.login && errors.login && (
-                    <p className='errorValidation'>{errors.login}</p>
-                  )}
-                </div>
+              <form onSubmit={handleSubmit}>
+                <div className='card-content white-text'>
+                  <span className='card-title head'>Sign up</span>
+                  <div className='input-field'>
+                    <input
+                      placeholder='Введите логин'
+                      id='login'
+                      type='text'
+                      className='validate'
+                      name={'login'}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.login}
+                    />
+                    <label htmlFor='login'>Login</label>
+                    {touched.login && errors.login && (
+                      <p className='errorValidation'>{errors.login}</p>
+                    )}
+                  </div>
 
-                <div className='input-field'>
-                  <input
-                    placeholder='Введите email'
-                    id='email'
-                    type='email'
-                    className='validate'
-                    name={'email'}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.email}
-                  />
-                  <label htmlFor='email'>Email</label>
-                  {touched.email && errors.email && (
-                    <p className='errorValidation'>{errors.email}</p>
-                  )}
-                </div>
+                  <div className='input-field'>
+                    <input
+                      placeholder='Введите email'
+                      id='email'
+                      type='email'
+                      className='validate'
+                      name={'email'}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.email}
+                    />
+                    <label htmlFor='email'>Email</label>
+                    {touched.email && errors.email && (
+                      <p className='errorValidation'>{errors.email}</p>
+                    )}
+                  </div>
 
-                <div className='input-field'>
-                  <input
-                    placeholder='Введите пароль'
-                    id='password'
-                    type='password'
-                    className='validate'
-                    name={'password'}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.password}
-                  />
-                  <label htmlFor='password'>Password</label>
-                  {touched.password && errors.password && (
-                    <p className='errorValidation'>{errors.password}</p>
-                  )}
-                </div>
+                  <div className='input-field'>
+                    <input
+                      placeholder='Введите пароль'
+                      id='password'
+                      type='password'
+                      className='validate'
+                      name={'password'}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.password}
+                    />
+                    <label htmlFor='password'>Password</label>
+                    {touched.password && errors.password && (
+                      <p className='errorValidation'>{errors.password}</p>
+                    )}
+                  </div>
 
-                <div className='input-field'>
-                  <input
-                    placeholder='Подтвердите пароль'
-                    id='passwordConfirm'
-                    type='password'
-                    className='validate'
-                    name={'passwordConfirm'}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.passwordConfirm}
-                  />
-                  <label htmlFor='passwordConfirm'>Password confirm</label>
-                  {touched.passwordConfirm && errors.passwordConfirm && (
-                    <p className='errorValidation'>{errors.passwordConfirm}</p>
-                  )}
+                  <div className='input-field'>
+                    <input
+                      placeholder='Подтвердите пароль'
+                      id='passwordConfirm'
+                      type='password'
+                      className='validate'
+                      name={'passwordConfirm'}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.passwordConfirm}
+                    />
+                    <label htmlFor='passwordConfirm'>Password confirm</label>
+                    {touched.passwordConfirm && errors.passwordConfirm && (
+                      <p className='errorValidation'>
+                        {errors.passwordConfirm}
+                      </p>
+                    )}
+                  </div>
                 </div>
-              </div>
-              <div className='card-action'>
-                <button
-                  className='btn sign-up'
-                  onClick={(e) => {
-                    handleSubmit({ login: values.login })
-                  }}
-                  type={'submit'}
-                  disabled={loading && !isValid && !dirty}
-                >
-                  Регистрация
-                </button>
-                <p>
-                  <NavLink to='/auth' className='signIn'>
-                    Уже зарегестрированны? Войти
-                  </NavLink>
-                </p>
-              </div>
+                <div className='card-action'>
+                  <button
+                    className='btn sign-up'
+                    onClick={handleSubmit}
+                    type={'submit'}
+                    disabled={loading && !isValid && !dirty}
+                  >
+                    Регистрация
+                  </button>
+                  <p>
+                    <NavLink to='/auth' className='signIn'>
+                      Уже зарегестрированны? Войти
+                    </NavLink>
+                  </p>
+                </div>
+              </form>
             </div>
-            <Router history={history}></Router>
           </div>
         )}
       </Formik>
     )
   } else {
     history.push('/auth')
-    return <Auth body={body} />
+    return (
+      <Router history={history}>
+        <Auth body={body} />
+      </Router>
+    )
   }
 }
 
